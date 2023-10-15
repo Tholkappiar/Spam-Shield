@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: spam-shield
+          uri: lb://spam-shield
+          predicates:
+            - Path=/api/**
+                        
+        - id: spam-count
+          uri: lb://spam-count
+          predicates:
+            - Path=/spamdata/**
+        
+#        - id: patient-server
+#          uri: lb://patient-server
+#          predicates:
+#            - Path=/patients/**
+            
+            
+         
